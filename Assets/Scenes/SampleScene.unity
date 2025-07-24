@@ -428,56 +428,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &710508841 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3331050020180912530, guid: d4ee9269b2eb5c24abdc2ad63c3570f5, type: 3}
-  m_PrefabInstance: {fileID: 1427777818852170581}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &710508844
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 710508841}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &845515075
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,7 +713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message: {fileID: 1609876321}
   pato: {fileID: 859246155}
-  pipes: {fileID: 710508841}
+  pipes: {fileID: 3331050020180912530, guid: d4ee9269b2eb5c24abdc2ad63c3570f5, type: 3}
   Source: {fileID: 845515075}
 --- !u!1 &1609876321
 GameObject:
@@ -862,7 +812,7 @@ GameObject:
   - component: {fileID: 1873989013}
   m_Layer: 0
   m_Name: DestroyPipes
-  m_TagString: Untagged
+  m_TagString: DestroyPoint
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -948,7 +898,7 @@ Transform:
   m_GameObject: {fileID: 1873989012}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.1625519, y: 0.33059308, z: 0}
+  m_LocalPosition: {x: -11.42, y: 0.33059308, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -964,11 +914,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 203036222357311309, guid: d4ee9269b2eb5c24abdc2ad63c3570f5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.0050362
+      value: 1.7709743
       objectReference: {fileID: 0}
     - target: {fileID: 203036222357311309, guid: d4ee9269b2eb5c24abdc2ad63c3570f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.4803
+      value: 4.7058
       objectReference: {fileID: 0}
     - target: {fileID: 1471349161928316640, guid: d4ee9269b2eb5c24abdc2ad63c3570f5, type: 3}
       propertyPath: m_LayerOverridePriority
@@ -1028,7 +978,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5800001721526598909, guid: d4ee9269b2eb5c24abdc2ad63c3570f5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.0579216
+      value: 1.7639701
       objectReference: {fileID: 0}
     - target: {fileID: 5800001721526598909, guid: d4ee9269b2eb5c24abdc2ad63c3570f5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1036,15 +986,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5800001721526598909, guid: d4ee9269b2eb5c24abdc2ad63c3570f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.1188
+      value: -3.2484
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3331050020180912530, guid: d4ee9269b2eb5c24abdc2ad63c3570f5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 710508844}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4ee9269b2eb5c24abdc2ad63c3570f5, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
