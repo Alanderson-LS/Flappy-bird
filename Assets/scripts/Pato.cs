@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using System;
+using System.IO;
 
 public class Pato : MonoBehaviour
 {
@@ -10,10 +12,11 @@ public class Pato : MonoBehaviour
     [SerializeField] private GameObject pato;
     [SerializeField] private float jumpSpeed;
 
-
+    private GameObject messageObj;
     // Start is called before the first frame update
     void Start()
     {
+        messageObj = GameObject.Find("message");
         jumping = false;
         rb = GetComponent<Rigidbody2D>(); 
     }
@@ -23,9 +26,17 @@ public class Pato : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("Espaço");
             jumping = true;
         }
+        if (messageObj != null)
+        {
+            rb.constraints = rb.constraints | RigidbodyConstraints2D.FreezePositionY;
+        }
+        else
+        {
+            rb.constraints = rb.constraints & ~RigidbodyConstraints2D.FreezePositionY;
+        }
+        
     }
 
     async Task FixedUpdate()

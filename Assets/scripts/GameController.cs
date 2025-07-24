@@ -5,12 +5,28 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField] private GameObject message, pato;
-
+    [SerializeField] private GameObject pipes, Source;
+    private float timeToSpawn = 2f;
 
     // Start is called before the first frame update
     void Start()
     {
+        InvokeRepeating("SpawnPipes", 0f, timeToSpawn);
 
+    }
+
+    private void SpawnPipes()
+    {
+        int numero = Random.Range(-2, 3);
+        Vector3 pos = Source.transform.position;
+
+        pos.y += numero; 
+
+        Instantiate(
+            pipes,
+            pos,
+            Quaternion.identity
+        );        
     }
 
     // Update is called once per frame
