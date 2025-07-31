@@ -11,6 +11,7 @@ public class Pato : MonoBehaviour
     private bool jumping;
     [SerializeField] private GameObject pato;
     [SerializeField] private float jumpSpeed;
+    private bool finished;
 
     private GameObject messageObj;
     // Start is called before the first frame update
@@ -18,7 +19,7 @@ public class Pato : MonoBehaviour
     {
         messageObj = GameObject.Find("message");
         jumping = false;
-        rb = GetComponent<Rigidbody2D>(); 
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -36,7 +37,7 @@ public class Pato : MonoBehaviour
         {
             rb.constraints = rb.constraints & ~RigidbodyConstraints2D.FreezePositionY;
         }
-        
+
     }
 
     async Task FixedUpdate()
@@ -45,6 +46,14 @@ public class Pato : MonoBehaviour
         {
             rb.velocity = Vector2.up * jumpSpeed; //(0, 1)
             jumping = false;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        Debug.Log(finished);
+        if (other.gameObject.CompareTag("pipe"))
+        {
+            finished = true;
         }
     }
 }

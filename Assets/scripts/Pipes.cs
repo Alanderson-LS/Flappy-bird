@@ -5,6 +5,7 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour
 {
     [SerializeField] private float speed;
+    private static int score = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,11 @@ public class NewBehaviourScript : MonoBehaviour
         if (other.CompareTag("DestroyPoint"))
         {
             Destroy(gameObject);
+        }
+        if (other.CompareTag("Player"))
+        {
+            score += 1;
+            Debug.Log("Score:" + score);
         }
     }
 }
