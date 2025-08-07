@@ -11,7 +11,7 @@ public class Pato : MonoBehaviour
     private bool jumping;
     [SerializeField] private GameObject pato;
     [SerializeField] private float jumpSpeed;
-    private bool finished;
+    [SerializeField] private GameController GameController;
 
     private GameObject messageObj;
     // Start is called before the first frame update
@@ -42,7 +42,7 @@ public class Pato : MonoBehaviour
 
     async Task FixedUpdate()
     {
-        if (jumping)
+        if (jumping && !GameController.CheckFinish())
         {
             rb.velocity = Vector2.up * jumpSpeed; //(0, 1)
             jumping = false;
@@ -50,10 +50,16 @@ public class Pato : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log(finished);
         if (other.gameObject.CompareTag("pipe"))
         {
-            finished = true;
+            GameController.GameOver();
         }
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("ScoreCollider"))
+        {
+            GameController.IncreaseScore(1);
+        } 
     }
 }

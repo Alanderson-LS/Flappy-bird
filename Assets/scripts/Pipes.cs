@@ -27,10 +27,5 @@ public class NewBehaviourScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (other.CompareTag("Player"))
-        {
-            score += 1;
-            Debug.Log("Score:" + score);
-        }
     }
 }
