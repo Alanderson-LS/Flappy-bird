@@ -54,7 +54,6 @@ public class GameController : MonoBehaviour
     public void IncreaseScore(int scoreAdd)
     {
         this.score += scoreAdd;
-        Debug.Log(score);
         scoreText.text = $"{score}";
         
     }

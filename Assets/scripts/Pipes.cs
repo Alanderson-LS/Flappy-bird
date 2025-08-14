@@ -5,7 +5,6 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour
 {
     [SerializeField] private float speed;
-    private static int score = 0;
     // Start is called before the first frame update
     void Start()
     {

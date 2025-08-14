@@ -12,6 +12,13 @@ public class Pato : MonoBehaviour
     [SerializeField] private GameObject pato;
     [SerializeField] private float jumpSpeed;
     [SerializeField] private GameController GameController;
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip scoreSound;
+    [SerializeField] private AudioClip pipeSound;
+    [SerializeField] private AudioClip errorSound;
+    [SerializeField] private AudioClip failSound;
+
+
 
     private GameObject messageObj;
     // Start is called before the first frame update
@@ -40,11 +47,12 @@ public class Pato : MonoBehaviour
 
     }
 
-    async Task FixedUpdate()
+    void FixedUpdate()
     {
         if (jumping && !GameController.CheckFinish())
         {
-            rb.velocity = Vector2.up * jumpSpeed; //(0, 1)
+            AudioController.instance.PlayAudioClip(jumpSound, 0);
+            rb.velocity = Vector2.up * jumpSpeed; //(0, 1)            
             jumping = false;
         }
     }
@@ -53,6 +61,17 @@ public class Pato : MonoBehaviour
         if (other.gameObject.CompareTag("pipe"))
         {
             GameController.GameOver();
+            AudioController.instance.PlayAudioClip(pipeSound,0);
+        }
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            GameController.GameOver();
+            AudioController.instance.PlayAudioClip(errorSound,0);
+        }
+        if (other.gameObject.CompareTag("Sky"))
+        {
+            GameController.GameOver();
+            AudioController.instance.PlayAudioClip(failSound,0);
         }
     }
     void OnTriggerEnter2D(Collider2D other)
@@ -60,6 +79,7 @@ public class Pato : MonoBehaviour
         if (other.gameObject.CompareTag("ScoreCollider"))
         {
             GameController.IncreaseScore(1);
+            AudioController.instance.PlayAudioClip(scoreSound, 5f);
         } 
     }
 }
